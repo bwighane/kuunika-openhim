@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+  - "lts/carbon"
+services:
+  - docker
+  - mongodb
+sudo: required
+before_install:
+  - export TZ=Africa/Johannesburg
+after_success:
+  - npm run coverage
+  - ".travis/build_docker.sh"
